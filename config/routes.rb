@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  get 'mypage', to: 'users#me'
-  get 'home/index'
-  get 'login', 'sessions/create'
-  get 'logout', 'sessions/destroy'
+  
+  get 'healths/index'
+  get 'healths/show'
+  get 'healths/new'
+  get 'healths/edit'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'healths#index'
   resources :users, only:%i[new create]
 end

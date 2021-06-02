@@ -1,0 +1,53 @@
+<h1>#年#月 健康状態登録一覧</h1>
+<div>
+  <p>所属：</p>
+  <p>氏名：</p>
+  <p><前月　次月></p>
+</div>
+
+<div class='row'>
+ <div class='"col-mid-12'>
+  <table class="table table-striped">
+    <thead class="thead-light">
+      <tr>
+        <th>日付</th>
+        <th>体温（朝）</th>
+        <th>体温（夕）</th>
+        <th>咳嗽</th>
+        <th>呼吸困難</th>
+        <th>鼻汁・鼻閉</th>
+        <th>咽頭痛</th>
+        <th>頭痛</th>
+        <th>下痢</th>
+        <th>味覚異常</th>
+        <th>嗅覚異常</th>
+        <th>その他</th>
+        <th>更新</th>
+        <th>行動記録</th>
+        <th>更新</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @healths.each do |health| %>
+        <tr>
+          <td><%= health.date %></td>
+          <td><%= health.temperature_morning %></td>
+          <td><%= health.temperature_night %></td>
+          <td><%= health.cough %></td>
+          <td><%= health.dyspnea %></td>
+          <td><%= health.nasal %></td>
+          <td><%= health.throat %></td>
+          <td><%= health.headache %></td>
+          <td><%= health.diarrhea %></td>
+          <td><%= health.taste %></td>
+          <td><%= health.smell %></td>
+          <td><%= health.ather %></td>
+          <td><%= link_to '更新', class: 'btn btn-primary' %></td>
+          <td>あり</td>
+          <td><%= link_to '更新', class: 'btn btn-primary' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+ </div>
+</div>
