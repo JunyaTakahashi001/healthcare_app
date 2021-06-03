@@ -7,6 +7,7 @@ class HealthsController < ApplicationController
   end
 
   def new
+    @health = Health.new
   end
 
   def edit
