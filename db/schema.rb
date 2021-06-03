@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_01_121649) do
+ActiveRecord::Schema.define(version: 2021_06_03_122434) do
 
   create_table "healths", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "date", null: false
+    t.date "date", null: false
     t.decimal "temperature_morning", precision: 3, scale: 1
     t.decimal "temperature_night", precision: 3, scale: 1
     t.string "cough"

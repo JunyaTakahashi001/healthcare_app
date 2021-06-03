@@ -1,12 +1,16 @@
-<h1>#年#月 健康状態登録一覧</h1>
-<div>
-  <p>所属：</p>
-  <p>氏名：</p>
-  <p><前月　次月></p>
+<div class="d-flex align-items-center">
+  <h1><%= year() %>年<%= month() %>月 健康状態登録一覧</h1>
+  <div class="ml-auto">
+      <%= link_to '登録', new_health_path, class: 'btn btn-outline-dark' %>
+    </div>
 </div>
-
+<div>
+    <p>所属：</p>
+    <p>氏名：</p>
+    <p><前月 次月></p>
+  </div>
 <div class='row'>
- <div class='"col-mid-12'>
+ <div class='col-mid-12'>
   <table class="table table-striped">
     <thead class="thead-light">
       <tr>
@@ -42,7 +46,7 @@
           <td><%= health.taste %></td>
           <td><%= health.smell %></td>
           <td><%= health.ather %></td>
-          <td><a href="/healths/new" class="btn btn-outline-dark">登録</a></td>
+          <td><%= link_to '更新', class: 'btn btn-primary' %></td>
           <td>あり</td>
           <td><%= link_to '更新', class: 'btn btn-primary' %></td>
         </tr>
