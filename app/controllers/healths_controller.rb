@@ -11,7 +11,15 @@ class HealthsController < ApplicationController
   end
 
   def create
-    Health.create(health_params)
+    health = Health.new(health_params)
+    if health.save
+      flash[:notice] = "「#{health.date}」の健康状態を登録しました"
+      redirect_to healths_path
+    else
+      flash[:error_messages] = health.errors.full_messages
+      redirect_back(fallback_location: new_health_path)
+    end
+    
   end
 
   def edit

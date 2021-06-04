@@ -4,6 +4,9 @@
       <%= link_to '登録', new_health_path, class: 'btn btn-outline-dark' %>
     </div>
 </div>
+<% if flash[:notice] %>
+  <div class="alert alert-primary"><%= flash[:notice] %></div>
+<% end %>
 <div>
     <p>所属：</p>
     <p>氏名：<%= @current_user.name %></p>
