@@ -98,5 +98,10 @@
     <%= f.text_field :ather, :size=>"50" %>
   </div>
 
+  <%# ユーザーID %>
+  <div class="form-group">
+    <%= f.hidden_field :user_id, :value => @current_user.id %>
+  </div>
+
   <%= f.submit '登録', class: 'btn btn-primary' %>
 <% end %>
