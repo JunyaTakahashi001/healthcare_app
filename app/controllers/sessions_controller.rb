@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to healths_path
     else
+      flash[:notice] = "ユーザー名またはパスワードを確認してください"
       render 'home/index'
     end
   end
