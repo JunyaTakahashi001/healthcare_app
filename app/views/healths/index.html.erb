@@ -37,7 +37,7 @@
     <tbody>
       <% @healths.each do |health| %>
         <tr>
-          <td><%= health.date %></td>
+          <td><%= health.date.day %>日</td>
           <td><%= health.temperature_morning %></td>
           <td><%= health.temperature_night %></td>
           <td><%= health.cough %></td>
