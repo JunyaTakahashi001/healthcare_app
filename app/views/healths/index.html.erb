@@ -1,5 +1,5 @@
 <div class="d-flex align-items-center">
-  <h1><%= year() %>年<%= month() %>月 健康状態登録一覧</h1>
+  <h1><%= @month %> 健康状態登録一覧</h1>
   <div class="ml-auto">
       <%= link_to '登録', new_health_path, class: 'btn btn-outline-dark' %>
     </div>
@@ -8,10 +8,12 @@
   <div class="alert alert-primary"><%= flash[:notice] %></div>
 <% end %>
 <div>
-    <p>所属：</p>
-    <p>氏名：<%= @current_user.name %></p>
-    <p><前月 次月></p>
-  </div>
+  <p>所属：</p>
+  <p>氏名：<%= @current_user.name %></p>
+  <%= link_to "<前月",healths_path(month:@month.prev_month) %>
+  <%= link_to "次月>",healths_path(month:@month.next_month) %>
+</div>
+
 <div class='index'>
  <div class='col-mid-12'>
   <table class="table table-striped">
@@ -34,6 +36,11 @@
         <th>更新</th>
       </tr>
     </thead>
+
+    <%# 月末を取得 %>
+    <% end_day = end_of_month %>
+
+
     <tbody>
       <% @healths.each do |health| %>
         <tr>

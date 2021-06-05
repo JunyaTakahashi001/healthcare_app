@@ -1,6 +1,9 @@
 class HealthsController < ApplicationController
   def index
-    @healths = Health.all 
+    # クエリストリングがあればTimeオブジェクトに変換、ない場合は現在の時刻を取得
+    @month = params[:month] ? Date.parse(params[:month]) : Time.zone.today
+    # 取得した時刻が含まれる月の範囲のデータを取得
+    @healths = Health.where(date: @month.all_month)
   end
 
   def show

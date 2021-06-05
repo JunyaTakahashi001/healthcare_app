@@ -1,13 +1,7 @@
 module ApplicationHelper
-    def year
-        year = Time.now.year
-    end
-
-    def month
-        month = Time.now.month
-    end
-
-    def day
-        day = Time.now.day
+    def end_of_month
+        today = Date.today
+        end_day = today.end_of_month
+        end_day = end_day.day
     end
 end
