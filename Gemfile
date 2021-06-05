@@ -38,6 +38,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'bootstrap', '~> 4.0.0'
 gem 'mini_racer'
+# エラーメッセージ日本語化
+gem 'rails-i18n'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

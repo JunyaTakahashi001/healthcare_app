@@ -1,6 +1,13 @@
 ja:
   activerecord:
     attributes:
+      
+      health:
+        temperature_morning: 体温（朝）
+        temperature_night: 体温（夕）
+        date: 日付
+        user_id: その日付
+
       user:
         name: ユーザー名
         password: パスワード
