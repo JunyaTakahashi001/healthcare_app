@@ -10,7 +10,8 @@ class HealthsController < ApplicationController
   end
 
   def new
-    @health = Health.new
+    @params = params[:date]
+    @health = Health.new(date: @params)
   end
 
   def create
