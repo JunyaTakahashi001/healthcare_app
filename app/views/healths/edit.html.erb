@@ -1,2 +1,11 @@
-<h1>Healths#edit</h1>
-<p>Find me in app/views/healths/edit.html.erb</p>
+<div class="d-flex align-items-center">
+  <h1>健康状態変更</h1>
+  <div class="ml-auto boards__linkBox">
+    <%= link_to '一覧へ戻る', healths_path, class: 'btn btn-outline-dark' %>
+  </div>
+</div>
+<div>
+  <p>所属：</p>
+  <p>氏名：<%= @current_user.name %></p>
+</div>
+<%= render partial: 'form', locals: { health: @health } %>

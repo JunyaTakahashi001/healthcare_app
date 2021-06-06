@@ -6,6 +6,6 @@
 </div>
 <div>
   <p>所属：</p>
-  <p>氏名：</p>
+  <p>氏名：<%= @current_user.name %></p>
 </div>
 <%= render partial: 'form', locals: { health: @health } %>
