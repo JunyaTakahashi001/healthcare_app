@@ -37,29 +37,70 @@
       </tr>
     </thead>
 
-    <%# 月末を取得 %>
-    <% days = end_of_month %>
+
 
     <tbody>
+    <%# 該当月の日数を取得 %>
+    <% days = end_of_month %>
+
+    <%# 月初、月末取得 %>
+    <% first = first_day %>
+    <% last = last_day %>
+
+    <% not_date = 0 %>
+
+    <%# 日数分繰り返し %>
+    <% while first <= last do %>
       <% @healths.each do |health| %>
+        <% if health.date == first %>
+          <tr>
+            <td><%= health.date.day %>日</td>
+            <td><%= health.temperature_morning %></td>
+            <td><%= health.temperature_night %></td>
+            <td><%= health.cough %></td>
+            <td><%= health.dyspnea %></td>
+            <td><%= health.nasal %></td>
+            <td><%= health.throat %></td>
+            <td><%= health.headache %></td>
+            <td><%= health.diarrhea %></td>
+            <td><%= health.taste %></td>
+            <td><%= health.smell %></td>
+            <td><%= health.ather %></td>
+            <td><%= link_to '更新', class: 'btn btn-primary' %></td>
+            <td>あり</td>
+            <td><%= link_to '更新', class: 'btn btn-primary' %></td>
+          </tr>
+          <% not_date = 0 %>
+          <% break %>
+        <% else %>
+          <% not_date = 1 %>
+        <% end %>
+      <% end %>
+      <% if not_date == 1 %>
         <tr>
-          <td><%= health.date.day %>日</td>
-          <td><%= health.temperature_morning %></td>
-          <td><%= health.temperature_night %></td>
-          <td><%= health.cough %></td>
-          <td><%= health.dyspnea %></td>
-          <td><%= health.nasal %></td>
-          <td><%= health.throat %></td>
-          <td><%= health.headache %></td>
-          <td><%= health.diarrhea %></td>
-          <td><%= health.taste %></td>
-          <td><%= health.smell %></td>
-          <td><%= health.ather %></td>
-          <td><%= link_to '更新', class: 'btn btn-primary' %></td>
-          <td>あり</td>
-          <td><%= link_to '更新', class: 'btn btn-primary' %></td>
+          <td><%= first.day %>日</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
         </tr>
       <% end %>
+      <% not_date = 0 %>
+      <% first += 1 %>
+    <% end %>
+
+    
+ 
     </tbody>
   </table>
  </div>

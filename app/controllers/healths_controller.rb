@@ -4,7 +4,6 @@ class HealthsController < ApplicationController
     @month = params[:month] ? Date.parse(params[:month]) : Time.zone.today
     # 取得した時刻が含まれる月の範囲のデータを取得
     @healths = Health.where(date: @month.all_month).order('date ASC')
-    binding.pry
   end
 
   def show
