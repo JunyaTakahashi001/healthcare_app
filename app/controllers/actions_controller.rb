@@ -6,6 +6,8 @@ class ActionsController < ApplicationController
   end
 
   def new
+    @params = params[:date].to_time
+    @action = Action.new(date: @params)
   end
 
   def edit

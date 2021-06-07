@@ -9,8 +9,15 @@
 # User.create(id: 1, name: "takahashi")
 
 
+# if Rails.env == 'development'
+#     (1..5).each do |i|
+#         Health.create(id: "#{i}" , date: "2021-06-#{i}", temperature_morning: 36.8, temperature_night: 36.6, cough: 'YES', dyspnea: 'YES', nasal: 'YES', throat: 'YES', headache: 'YES', diarrhea: 'YES', taste: 'YES', smell: 'NO', ather: '', user_id: 1)
+#     end
+# end
+
+
 if Rails.env == 'development'
-    (1..5).each do |i|
-        Health.create(id: "#{i}" , date: "2021-06-#{i}", temperature_morning: 36.8, temperature_night: 36.6, cough: 'YES', dyspnea: 'YES', nasal: 'YES', throat: 'YES', headache: 'YES', diarrhea: 'YES', taste: 'YES', smell: 'NO', ather: '', user_id: 1)
+    (1..10).each do |i|
+        Action.create(id: "#{i}", date: "2021-06-1", serial_num: "#{i}", start_time: 11:30, end_time: 15:45, destination: "池袋本社", transportation: "電車", departure: "東高円寺", arrival: "池袋", attendees: "なし", attendees_details: "なし", ather: 'その他', user_id: 1)
     end
 end
