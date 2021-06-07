@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_03_122434) do
+ActiveRecord::Schema.define(version: 2021_06_06_142033) do
+
+  create_table "actions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "date", null: false
+    t.integer "serial_num", null: false
+    t.time "start_time"
+    t.time "end_time"
+    t.string "destination"
+    t.string "transportation"
+    t.string "departure"
+    t.string "arrival"
+    t.string "attendees"
+    t.string "attendees_details"
+    t.text "other"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_actions_on_user_id"
+  end
 
   create_table "healths", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "date", null: false
@@ -39,5 +57,6 @@ ActiveRecord::Schema.define(version: 2021_06_03_122434) do
     t.index ["name"], name: "index_users_on_name", unique: true
   end
 
+  add_foreign_key "actions", "users"
   add_foreign_key "healths", "users"
 end
