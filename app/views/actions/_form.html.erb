@@ -7,7 +7,7 @@
     <ul>
   </div>
 <% end %>
-<%= form_for(action, url: actions_new_path) do |f| %>
+<%= form_for action do |f| %>
   <div class="form-group">
     <%= f.label :date, '日付' %>
     <%= f.date_field :date, class: 'form-control' %>
