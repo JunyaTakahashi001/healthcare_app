@@ -7,12 +7,16 @@
     <ul>
   </div>
 <% end %>
-<%= form_for action do |f| %>
+<%= form_for actionlog do |f| %>
   <div class="form-group">
     <%= f.label :date, '日付' %>
     <%= f.date_field :date, class: 'form-control' %>
   </div>
   <%# シリアルナンバー %>
+  <div class="form-group">
+    <%= f.label :serial_num, '通番' %>
+    <%= f.text_field :serial_num, class: 'form-control' %>
+  </div>
 
   <div class="form-group">
     <%= f.label :start_time, '出発時刻', class: 'control-label' %>

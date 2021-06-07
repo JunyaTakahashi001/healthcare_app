@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_07_050246) do
+ActiveRecord::Schema.define(version: 2021_06_07_110802) do
 
-  create_table "actions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "actionlogs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "date", null: false
     t.integer "serial_num", null: false
     t.time "start_time"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2021_06_07_050246) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_actions_on_user_id"
+    t.index ["user_id"], name: "index_actionlogs_on_user_id"
   end
 
   create_table "healths", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -57,6 +57,6 @@ ActiveRecord::Schema.define(version: 2021_06_07_050246) do
     t.index ["name"], name: "index_users_on_name", unique: true
   end
 
-  add_foreign_key "actions", "users"
+  add_foreign_key "actionlogs", "users"
   add_foreign_key "healths", "users"
 end
