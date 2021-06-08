@@ -7,7 +7,7 @@ class ActionlogsController < ApplicationController
 
   def new
     @params = params[:date].to_time
-    # 行動データの取得
+    # 既存行動データの取得
     @actionlogs = Actionlog.where(date: @params.all_day).where(user_id: @current_user.id).order('date ASC')
     @actionlog = Actionlog.new(date: @params)
   end

@@ -24,17 +24,16 @@
         <th>ありの場合は間柄等を記入</th>
         <th>特記事項</th>
         <th></th>
+        <th></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
-
-
-
-      <%# 登録なしの場合 %>
-      <% for num in 1..10 %>
-        <%= form_for actionlog do |f| %>
-          <tr>
-            <td><%= f.text_field :serial_num, :value => num,:size=>"2" %></td>
+      <%# 登録ありの場合 %>
+      <% @actionlogs.each do |actionlog| %>
+        <tr>
+          <%= form_for actionlog do |f| %>
+            <td><%= f.text_field :serial_num, :size=>"2" %></td>
             <td><%= f.time_field :start_time, class: 'form-control' %></td>
             <td><%= f.time_field :end_time, class: 'form-control' %></td>
             <td><%= f.text_field :destination, :size=>"10" %></td>
@@ -47,10 +46,33 @@
             <td><%= f.text_field :attendees_details %></td>
             <td><%= f.text_field :other, :size=>"5" %></td>
             <td><%= f.submit '登録', class: 'btn btn-primary' %></td>
-            <%= f.hidden_field :user_id, :value => @current_user.id %>
-            <%= f.hidden_field :date, class: 'form-control' %>
-          </tr>
-        <% end %>
+            <td><%= f.hidden_field :user_id, :value => @current_user.id %></td>
+            <td><%= f.hidden_field :date, class: 'form-control' %></td>
+          <% end %>
+        </tr>
+      <% end %>
+
+      <%# 登録なしの場合 %>
+      <% for num in 1..10 %>
+        <tr>
+          <%= form_for actionlog do |f| %>
+          <td><%= f.text_field :serial_num, :value => num,:size=>"2" %></td>
+          <td><%= f.time_field :start_time, class: 'form-control' %></td>
+          <td><%= f.time_field :end_time, class: 'form-control' %></td>
+          <td><%= f.text_field :destination, :size=>"10" %></td>
+          <td><%= f.text_field :transportation, :size=>"10" %></td>
+          <td><%= f.text_field :departure, :size=>"10" %></td>
+          <td><%= f.text_field :arrival, :size=>"10" %></td>
+          <td><%= f.radio_button :attendees, "あり", {} %> あり
+              <%= f.radio_button :attendees, "なし", {} %> なし
+          </td>
+          <td><%= f.text_field :attendees_details %></td>
+          <td><%= f.text_field :other, :size=>"5" %></td>
+          <td><%= f.submit '登録', class: 'btn btn-primary' %></td>
+          <td><%= f.hidden_field :user_id, :value => @current_user.id %></td>
+          <td><%= f.hidden_field :date, class: 'form-control' %></td>
+          <% end %>
+        </tr>
       <% end %>
     </tbody>
   </table>
