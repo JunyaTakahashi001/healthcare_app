@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_07_110802) do
+ActiveRecord::Schema.define(version: 2021_06_08_150329) do
 
   create_table "actionlogs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "date", null: false
-    t.integer "serial_num", null: false
+    t.integer "group_num", null: false
     t.time "start_time"
     t.time "end_time"
     t.string "destination"
