@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_08_150329) do
+ActiveRecord::Schema.define(version: 2021_06_09_124136) do
 
   create_table "actionlogs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "date", null: false
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 2021_06_08_150329) do
     t.string "password_digest", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "admin", default: false
     t.index ["name"], name: "index_users_on_name", unique: true
   end
 

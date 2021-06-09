@@ -9,4 +9,7 @@ Rails.application.routes.draw do
   resources :users, only:%i[new create]
   resources :healths
   resources :actionlogs
+  namespace :admin do
+    resources :restaurants, only: [:index, :new, :create, :show,  :edit, :destroy]
+  end
 end
