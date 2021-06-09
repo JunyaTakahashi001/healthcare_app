@@ -3,7 +3,11 @@ class Admin::RestaurantsController < ApplicationController
 	before_action :set_restaurant, only: [:show, :edit, :destroy]
 
   def index
-		
+		# クエリストリングがあればTimeオブジェクトに変換、ない場合は現在の時刻を取得
+    @month = params[:month] ? Date.parse(params[:month]) : Time.zone.today
+    # 取得した時刻が含まれる日の範囲のデータを取得
+    # @healths = Health.joins(:user).where(date: @month.all_day).order('date ASC')
+    @healths = Health.left_joins(:user).select('healths.*,users.name').where(date: @month.all_day).order('date ASC')
 	end
 
   private

@@ -1,5 +1,6 @@
 class User < ApplicationRecord
 	has_secure_password
+	has_many :healths,foreign_key: "user_id"
 
 	validates :name,
 		presence: true,
