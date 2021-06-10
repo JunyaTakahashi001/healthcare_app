@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   resources :actionlogs
   namespace :admin do
     resources :restaurants, only: [:index, :new, :create, :show,  :edit, :destroy]
+    resources :individuals, only: [:index, :new, :create, :show,  :edit, :destroy]
   end
 end
